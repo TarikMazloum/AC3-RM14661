@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!--CSS Personalizada, Sempre vem após o bootstrap-->
+    <link rel="stylesheet" href="css/estilos.css">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="logoff" onclick="window.location.href='/login'"><i class="bi bi-power"></i></div>
+        <h1 class="text-center">Lista de Atividades</h1>
+        <h2 class="text-center"><%=nome%></h2>
+        <div class="row">
+            <div class="col-md order-2">
+            <h3 class="text-center">Alterar</h3>
+            <form action="/alterar" method="POST" class="form-control">
+                <input type="hidden" name="id_u" value="<%=id%>">
+                <input type="hidden" name="id_a" value="<%=alterar._id%>">
+                <input type="hidden" name="nome" value="<%=nome%>">
+                <label for="" class="form-control text-bg-dark">Título da Atividade</label>
+                <input type="text" name="titulo" id="" class="form-control" value="<%=alterar.titulo%>">
+                <label for="" class="form-control text-bg-dark">Data de Entrega</label>
+                <input type="date" name="data" id="" class="form-control" value="<%=alterar.data.toISOString().slice(0,10)%>">
+                <label for="" class="form-control text-bg-dark">Tipo:</label>
+                <select name="tipo" id="" class="form-control">
+                    <option value="0">Selecione...</option>
+                    <option value="ac"<%=alterar.tipo=="ac"?"selected":""%>>AC</option>
+                    <option value="agh"<%=alterar.tipo=="agh"?"selected":""%>>AGH</option>
+                    <option value="at"<%=alterar.tipo=="at"?"selected":""%>>AT</option>
+                    <option value="rec"<%=alterar.tipo=="rec"?"selected":""%>>REC</option>
+                    <option value="exame"<%=alterar.tipo=="exame"?"selected":""%>>Exame</option>
+                </select>
+
+                <label for="" class="form-control text-bg-dark">Disciplina:</label>
+                    <select name="disciplina" id="" class="form-control">
+                    <option value="0">Selecione...</option>
+                    <option value="agh"<%=alterar.disciplina=="agh"?"selected":""%>>AGH</option>
+                    <option value="ans"<%=alterar.disciplina=="ans"?"selected":""%>>Análise de Sistemas</option>
+                    <option value="rds"<%=alterar.disciplina=="rds"?"selected":""%>>Redes de Computadores e Segurança</option>
+                    <option value="lp2"<%=alterar.disciplina=="lp2"?"selected":""%>>Linguagem de Programação</option>
+                    <option value="bd2"<%=alterar.disciplina=="bd2"?"selected":""%>>Banco de Dados</option>
+                    <option value="inw"<%=alterar.disciplina=="inw"?"selected":""%>>Internet Webdesign</option>
+                    <option value="bio"<%=alterar.disciplina=="bio"?"selected":""%>>Biologia</option>
+                    <option value="lpl"<%=alterar.disciplina=="lpl"?"selected":""%>>Lingua Portuguesa</option>
+                    <option value="h&g"<%=alterar.disciplina=="h&g"?"selected":""%>>Historia e Geografia</option>
+                </select>
+
+                <label for="" class="form-control text-bg-dark">Formato de Entrega</label>
+                <!--<div class="input-group">-->
+                    <input type="radio" value="teams" <%=alterar.entregar=='teams'?'checked':''%> name="entrega" id="" class="form-check-input">Tarefa no Teams
+                    <input type="radio" value="chat" <%=alterar.entregar=='chat'?'checked':''%> name="entrega" id="" class="form-check-input">Chat no Teams
+                    <input type="radio" value="formulario" <%=alterar.entregar=='formulario'?'checked':''%> name="entrega" id="" class="form-check-input">Forms
+                    <input type="radio" value="email" <%=alterar.entregar=='email'?'checked':''%> name="entrega" id="" class="form-check-input">Email
+                    <input type="radio" value="apresentacao" <%=alterar.entregar=='apresentacao'?'checked':''%> name="entrega" id="" class="form-check-input">Apresentação
+                    <label for="" class="form-control text-bg-dark">Orientações</label>
+                    <textarea name="orientacoes" id="" cols="30" rows="10" class="form-control">
+    <%=alterar.instrucoes%>
+                    </textarea>
+                <!--</div>-->
+                <div class="input-group">
+                <input type="button" value="Voltar" class="form-control btn btn-info" onclick="history.back()">
+                <input type="submit" value="Alterar" class="form-control btn btn-danger"></div>
+            </form>
+        </div>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</html>
