@@ -20,7 +20,7 @@
         <div class="accordion-body">
             <% for( var n=0; n<dadosAberto.length;n++){%>
                 <div class="card">
-                    <div class="card-header">Data: <%=dadosAberto[n].data.getDate()+1%>-<%=dadosAberto[n].data.getMonth()+1%>-<%=dadosAberto[n].data.getFullYear()%></div>
+                    <div class="card-header">Data: <%=dadosAberto[n].data.getDate()%>-<%=dadosAberto[n].data.getMonth()+1%>-<%=dadosAberto[n].data.getFullYear()%></div>
                     <div class="card-body">
                       <div class="card-title">Título: <%=dadosAberto[n].titulo%></div>
                       <div class="card-subtitle">Entrega: <%=dadosAberto[n].entrega%></div>
@@ -50,7 +50,7 @@
             <div class="accordion-body">
                 <% for( var n=0; n<dadosEntregue.length;n++){%>
                     <div class="card">
-                        <div class="card-header">Data: <%=dadosEntregue[n].data.getDate()+1%>-<%=dadosEntregue[n].data.getMonth()+1%>-<%=dadosEntregue[n].data.getFullYear()%></div>
+                        <div class="card-header">Data: <%=dadosEntregue[n].data.getDate()%>-<%=dadosEntregue[n].data.getMonth()+1%>-<%=dadosEntregue[n].data.getFullYear()%></div>
                         <div class="card-body">
                             <div class="card-title">Título: <%=dadosEntregue[n].titulo%></div>
                             <div class="card-subtitle">Entrega: <%=dadosEntregue[n].entrega%></div>
@@ -80,7 +80,7 @@
             <div class="accordion-body">
                 <% for( var n=0; n<dadosExcluir.length;n++){%>
           <div class="card">
-            <div class="card-header">Data: <%=dadosExcluir[n].data.getDate()+1%>-<%=dadosExcluir[n].data.getMonth()+1%>-<%=dadosExcluir[n].data.getFullYear()%></div>
+            <div class="card-header">Data: <%=dadosExcluir[n].data.getDate()%>-<%=dadosExcluir[n].data.getMonth()+1%>-<%=dadosExcluir[n].data.getFullYear()%></div>
             <div class="card-body">
             <div class="card-title">Título: <%=dadosExcluir[n].titulo%></div>
             <div class="card-subtitle">Entrega: <%=dadosExcluir[n].entrega%></div>
